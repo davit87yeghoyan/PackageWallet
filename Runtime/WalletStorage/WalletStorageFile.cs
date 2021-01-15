@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PackageWallet.Runtime.WalletStorage
 {
-    internal class WalletStorageFile:WalletStorageJson,IWalletStorage
+    public class WalletStorageFile:WalletStorageJson,IWalletStorage
     {
 
         private readonly string _path;

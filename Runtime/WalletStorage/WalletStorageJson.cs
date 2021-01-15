@@ -2,7 +2,7 @@
 
 namespace PackageWallet.Runtime.WalletStorage
 {
-    internal abstract class WalletStorageJson
+    public abstract class WalletStorageJson
     {
         protected string Serialization(WalletItems walletItems)
         {

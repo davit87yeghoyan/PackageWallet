@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PackageWallet.Runtime.WalletStorage
 {
-    internal class WalletStorageBinary:IWalletStorage
+    public class WalletStorageBinary:IWalletStorage
     {
         private readonly string _path;
         

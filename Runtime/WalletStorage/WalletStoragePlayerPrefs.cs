@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PackageWallet.Runtime.WalletStorage
 {
-    internal class WalletStoragePlayerPrefs:WalletStorageJson,IWalletStorage
+    public class WalletStoragePlayerPrefs:WalletStorageJson,IWalletStorage
     {
 
         private readonly string _playerPrefsKey;
