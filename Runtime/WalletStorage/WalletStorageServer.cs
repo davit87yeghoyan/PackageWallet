@@ -45,7 +45,6 @@ namespace PackageWallet.Runtime.WalletStorage
             var uwr = UnityWebRequest.Put(url,bytePostData);
             uwr.method = "POST"; //hack to send POST to server instead of PUT
             uwr.SetRequestHeader("Content-Type", "application/json");
-            uwr.SetRequestHeader("Accept", "application/json");
             return Request(uwr,response);
         }
         
@@ -53,6 +52,7 @@ namespace PackageWallet.Runtime.WalletStorage
         private IEnumerator GetFromServer(string url, Action<string> response)
         {
             var uwr = UnityWebRequest.Get(url);
+            uwr.SetRequestHeader("Content-Type", "application/json");
             return Request(uwr,response);
         }
         
