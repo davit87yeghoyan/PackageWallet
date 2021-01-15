@@ -22,7 +22,7 @@ namespace PackageWallet.Runtime
             _walletItems = new WalletItems {Value = new Dictionary<string, float>()};
         }
         
-        public static void SetValue(string key, int value)
+        public static void SetValue(string key, float value)
         {
             _walletItems.Value[key] = value;
             OnSetItem(key, value);
@@ -32,6 +32,17 @@ namespace PackageWallet.Runtime
         {
             if(!_walletItems.Value.ContainsKey(key)) throw new Exception();
             return _walletItems.Value[key];
+        }
+        
+        public static bool TryGetValue(string key, out float value)
+        {
+            value = 0;
+            if (_walletItems.Value.ContainsKey(key))
+            {
+                value = _walletItems.Value[key];
+                return true;
+            }
+            return false;
         }
 
         public static bool ContainsKey(string key)
