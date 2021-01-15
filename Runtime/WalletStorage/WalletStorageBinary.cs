@@ -27,7 +27,6 @@ namespace PackageWallet.Runtime.WalletStorage
         {
             if (!File.Exists(_path))
             {
-                Debug.LogError("file not found in " + _path);
                 return;
             }
             // File exists 
