@@ -27,12 +27,11 @@ namespace PackageWallet.Runtime.WalletStorage
         {
             if (!File.Exists(_path))
             {
+                Debug.LogError("file not found in " + _path);
                 return;
             }
-            
             // File exists 
             FileStream dataStream = new FileStream(_path, FileMode.Open);
-            if(dataStream.Length == 0) return;
             BinaryFormatter converter = new BinaryFormatter();
             var deserialize = converter.Deserialize(dataStream);
             dataStream.Close();
