@@ -1,0 +1,7 @@
+﻿{
+	"name": "PackageWallet.Runtime.WalletStorage",
+	
+	"references": [
+		"PackageWallet.Runtime"
+	]
+}
