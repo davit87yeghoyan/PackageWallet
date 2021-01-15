@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PackageWallet.Runtime.WalletStorage
+namespace PackageWallet.Runtime
 {
     public abstract class WalletStorageJson
     {
