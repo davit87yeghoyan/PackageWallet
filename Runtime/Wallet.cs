@@ -9,47 +9,53 @@ namespace PackageWallet.Runtime
     {
         public static event Action<string,float> SetItem;
         public static event Action<string[]> RemoveItem;
-        public static event Action<WalletItems> GetFromStorage;
+        public static event Action GetFromStorage;
         public static event Action SaveToStorage;
 
-        private static readonly WalletItems WalletItems;
+        private static WalletItems _walletItems;
 
-        public static WalletItems GetWalletItems => WalletItems.Copy();
+        public static WalletItems GetWalletItems => _walletItems.Copy();
 
 
         static Wallet()
         {
-            WalletItems = new WalletItems {Value = new Dictionary<string, float>()};
+            _walletItems = new WalletItems {Value = new Dictionary<string, float>()};
         }
         
-        public static void Set(string key, int value)
+        public static void SetValue(string key, int value)
         {
-            WalletItems.Value[key] = value;
+            _walletItems.Value[key] = value;
             OnSetItem(key, value);
         }
         
-        public static float Get(string key)
+        public static float GetValue(string key)
         {
-            if(!WalletItems.Value.ContainsKey(key)) throw new Exception();
-            return WalletItems.Value[key];
+            if(!_walletItems.Value.ContainsKey(key)) throw new Exception();
+            return _walletItems.Value[key];
         }
+
+        public static bool ContainsKey(string key)
+        {
+            return _walletItems.Value.ContainsKey(key);
+        }
+        
 
         public static void DeleteKey(string key)
         {
-            WalletItems.Value.Remove(key);
+            _walletItems.Value.Remove(key);
             OnRemoveItem( new[]{key});
         }
 
         public static void DeleteAllKey()
         {
-            string[] keys = WalletItems.Value.Keys.ToArray();
-            WalletItems.Value.Clear();
+            string[] keys = _walletItems.Value.Keys.ToArray();
+            _walletItems.Value.Clear();
             OnRemoveItem( keys);    
         }
         
         public static void SaveStorage(IWalletStorage walletStorage)
         {
-            walletStorage.Save(WalletItems, OnSaveToStorage);
+            walletStorage.Save(_walletItems, OnSaveToStorage);
         }
         
         public static void GetStorage(IWalletStorage walletStorage)
@@ -69,9 +75,10 @@ namespace PackageWallet.Runtime
         }
         
 
-        private static void OnGetFromStorage(WalletItems obj)
+        private static void OnGetFromStorage(WalletItems walletItems)
         {
-            GetFromStorage?.Invoke(obj);
+            _walletItems = walletItems;
+            GetFromStorage?.Invoke();
         }
 
         private static void OnSaveToStorage()
