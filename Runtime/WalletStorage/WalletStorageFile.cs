@@ -2,9 +2,9 @@
 using System.IO;
 using UnityEngine;
 
-namespace PackageWallet
+namespace PackageWallet.Runtime.WalletStorage
 {
-    class WalletStorageFile:WalletStorageJson,IWalletStorage
+    internal class WalletStorageFile:WalletStorageJson,IWalletStorage
     {
 
         private readonly string _path;

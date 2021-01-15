@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace PackageWallet
+namespace PackageWallet.Runtime.WalletStorage
 {
-    class WalletStorageServer:WalletStorageJson,IWalletStorage
+    internal class WalletStorageServer:WalletStorageJson,IWalletStorage
     {
         private readonly string _url;
         private readonly MonoBehaviour _mono;

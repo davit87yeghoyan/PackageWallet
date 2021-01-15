@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace PackageWallet
+namespace PackageWallet.Runtime.WalletStorage
 {
-    public abstract class WalletStorageJson
+    internal abstract class WalletStorageJson
     {
         protected string Serialization(WalletItems walletItems)
         {

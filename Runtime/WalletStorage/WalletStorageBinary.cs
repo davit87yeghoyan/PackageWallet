@@ -3,9 +3,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace PackageWallet
+namespace PackageWallet.Runtime.WalletStorage
 {
-    class WalletStorageBinary:IWalletStorage
+    internal class WalletStorageBinary:IWalletStorage
     {
         private readonly string _path;
         
