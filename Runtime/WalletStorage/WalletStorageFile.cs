@@ -2,7 +2,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace PackageWallet.Runtime.WalletStorage
+namespace PackageWallet
 {
     class WalletStorageFile:WalletStorageJson,IWalletStorage
     {

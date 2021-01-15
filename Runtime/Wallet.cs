@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PackageWallet.Runtime.WalletStorage;
 
 
-namespace PackageWallet.Runtime
+namespace PackageWallet
 {
     public static class Wallet
     {

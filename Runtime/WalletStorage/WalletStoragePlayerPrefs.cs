@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace PackageWallet.Runtime.WalletStorage
+namespace PackageWallet
 {
     class WalletStoragePlayerPrefs:WalletStorageJson,IWalletStorage
     {

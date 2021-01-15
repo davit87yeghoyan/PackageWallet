@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PackageWallet.Runtime
+namespace PackageWallet
 {
     [Serializable]
     public class WalletItems
