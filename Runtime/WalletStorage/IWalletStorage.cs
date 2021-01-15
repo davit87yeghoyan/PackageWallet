@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PackageWallet.Runtime
+namespace PackageWallet.Runtime.WalletStorage
 {
     public interface IWalletStorage
     {

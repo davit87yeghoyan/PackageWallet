@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace PackageWallet.Runtime
+namespace PackageWallet.Runtime.WalletStorage
 {
     class WalletStorageBinary:IWalletStorage
     {
