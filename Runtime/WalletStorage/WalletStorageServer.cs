@@ -31,6 +31,7 @@ namespace PackageWallet.Runtime.WalletStorage
             _mono.StartCoroutine(GetFromServer(_url, Response));
             void Response(string json)
             {
+                if(string.IsNullOrEmpty(json)) return;
                 WalletItems walletItems = Deserialize(json);
                 onGet?.Invoke(walletItems);
             }

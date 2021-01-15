@@ -24,10 +24,10 @@ namespace PackageWallet.Runtime.WalletStorage
         {
             if (!File.Exists(_path))
             {
-                Debug.LogError("file not found in " + _path);
                 return;
             }
             string json = File.ReadAllText(_path);
+            if(string.IsNullOrEmpty(json)) return;
             WalletItems walletItems = Deserialize(json);
             onGet?.Invoke(walletItems);
         }

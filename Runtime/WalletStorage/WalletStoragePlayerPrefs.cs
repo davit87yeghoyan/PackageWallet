@@ -23,6 +23,7 @@ namespace PackageWallet.Runtime.WalletStorage
         public void Get(Action<WalletItems> onGet)
         {
             string json = PlayerPrefs.GetString(_playerPrefsKey);
+            if(string.IsNullOrEmpty(json)) return;
             WalletItems walletItems = Deserialize(json);
             onGet?.Invoke(walletItems);
         }
