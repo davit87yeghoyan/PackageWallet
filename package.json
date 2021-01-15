@@ -1,0 +1,12 @@
+{
+  "name": "com.davit.yeghoyan",
+  "version": "1.0.0",
+  "displayName": "Wallet",
+  "description": "Wallet Module",
+  "unity": "2020.2",
+  "author": {
+    "email": "davit87.yeghoyan@gmail.com",
+    "name": "Davit Yeghoyan",
+    "url": ""
+  }
+}

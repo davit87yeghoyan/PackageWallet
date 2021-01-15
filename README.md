@@ -1,2 +1,2 @@
-# PackageWallet
-Package Wallet
+# Package-Wallet
+Unity Package Wallet
