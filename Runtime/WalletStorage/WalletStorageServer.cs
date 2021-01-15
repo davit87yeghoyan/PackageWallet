@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -40,7 +41,11 @@ namespace PackageWallet.Runtime.WalletStorage
         
         private IEnumerator SaveToServer(string url, string json, Action<string> response)
         {
-            var uwr = UnityWebRequest.Post(url,json);
+            byte[] bytePostData = Encoding.UTF8.GetBytes(json);
+            var uwr = UnityWebRequest.Put(url,bytePostData);
+            uwr.method = "POST"; //hack to send POST to server instead of PUT
+            uwr.SetRequestHeader("Content-Type", "application/json");
+            uwr.SetRequestHeader("Accept", "application/json");
             return Request(uwr,response);
         }
         
