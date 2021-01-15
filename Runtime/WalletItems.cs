@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PackageWallet.Runtime
@@ -19,7 +20,10 @@ namespace PackageWallet.Runtime
         }
         public WalletItems(WalletItems walletItems)
         {
-            walletItems.items.ForEach(item => Set(item.key,item.value));
+            foreach (var t in walletItems.items.Where(t => t != null))
+            {
+                Set(t.key,t.value);
+            }
         }
        
         
