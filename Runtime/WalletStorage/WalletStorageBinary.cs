@@ -29,6 +29,7 @@ namespace PackageWallet.Runtime.WalletStorage
             {
                 return;
             }
+            
             // File exists 
             FileStream dataStream = new FileStream(_path, FileMode.Open);
             if(dataStream.Length == 0) return;
